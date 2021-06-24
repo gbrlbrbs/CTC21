@@ -1,0 +1,8 @@
+name = "CTC21"
+uuid = "109ee7e1-90cb-4f10-9609-e54d1b4d6d24"
+authors = ["gbrlbrbs <gabrielbarbosamartinz@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+Gadfly = "c91e804a-d5a3-530f-b6f0-dfbca275c004"
