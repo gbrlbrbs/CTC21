@@ -1,6 +1,6 @@
 module CTC21
 import BenchmarkTools
-export greet, euclid, extended_euclid, fermat_factor
+export greet, euclid, extended_euclid, fermat_factor, mod_exp, leibniz_test
 
 greet() = print("Hello World!")
 
@@ -43,6 +43,7 @@ function extended_euclid(a::Int64, b::Int64, c::Int64)
         println("Não há solução")
         return [NaN, NaN, NaN]
     else
+        c_prime = c / gcd
         while b > 0
             q = div(a, b)
 
@@ -52,7 +53,7 @@ function extended_euclid(a::Int64, b::Int64, c::Int64)
 
             tmp = t; t = y - q*s; y = tmp
         end
-        return [gcd, x, y]
+        return [gcd, c_prime*x, c_prime*y]
     end
 end
 
@@ -65,5 +66,25 @@ function fermat_factor(N::Int64)
     end
     return [a - b, a + b]
 end
+
+function mod_exp(base::Int64, expon::Int64, n::Int64)::Int64
+    if n == 1
+        return 0
+    end
+    c = 1
+    for e_prime = 1:expon
+        c = mod(c * base, n)
+    end
+    return c
+end # function
+
+function leibniz_test(base::Int64, n::Int64)::Bool
+    for a = 2:base
+        if mod_exp(a, n-1, n) != 1
+            return false
+        end
+    end
+    return true
+end # function
 
 end # module
