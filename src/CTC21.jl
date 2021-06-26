@@ -1,8 +1,5 @@
 module CTC21
-import BenchmarkTools
-export greet, euclid, extended_euclid, fermat_factor, mod_exp, leibniz_test
-
-greet() = print("Hello World!")
+export euclid, extended_euclid, fermat_factor, mod_exp, leibniz_test
 
 function euclid(a::Int64, b::Int64)::Int64
 
@@ -57,6 +54,13 @@ function extended_euclid(a::Int64, b::Int64, c::Int64)
     end
 end
 
+"""
+Fermat Factors
+
+- Return: an array of ints containing the Fermat factors (a-b, a+b) of the number N.
+
+"""
+
 function fermat_factor(N::Int64)
     a = ceil(Int64, sqrt(N))
     b = sqrt(a^2 - N)
@@ -66,6 +70,13 @@ function fermat_factor(N::Int64)
     end
     return [a - b, a + b]
 end
+
+"""
+Exponential Modulo
+
+- Return: the modulo of `(base)^expon` in base n.
+
+"""
 
 function mod_exp(base::Int64, expon::Int64, n::Int64)::Int64
     if n == 1
@@ -77,6 +88,13 @@ function mod_exp(base::Int64, expon::Int64, n::Int64)::Int64
     end
     return c
 end # function
+
+"""
+Leibniz Test
+
+- Return: whether a number n passes all modulo tests using all bases between 2 and `base`
+
+"""
 
 function leibniz_test(base::Int64, n::Int64)::Bool
     for a = 2:base

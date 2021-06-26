@@ -13,12 +13,20 @@ include("cap6.jl")
 println("Respostas do capítulo 1:")
 cap1_questao1()
 cap1_questao2()
+println()
+
 println("Respostas do capítulo 2:")
 cap2_questao1()
+println()
+
 println("Respostas do capítulo 4:")
 cap4_questao8()
+println()
+
 println("Respostas do capítulo 5:")
 cap5_questao3()
+println()
+
 println("Respostas do capítulo 6:")
 cap6_questao1()
 cap6_questao3()
